@@ -1,0 +1,8 @@
+PASS: tree-sitter parses all conditional branches of 51 Swift files.
+PASS: Swift compiler syntax parsing of app sources and package manifest.
+PASS: both Xcode project files decode as OpenStep.
+PASS: SwiftPM evaluates portable manifest branch with local core/tests and no remote dependencies.
+PASS: 7 structural groups, 20 app Swift sources, 2 Xcode projects.
+PASS: app playground structure, 20 identical app sources, core/tests, permissions, plist, local resources.
+NOT TESTED: Apple SDK type checking, Swift Playground launch, microphone, Pencil, Goodnotes, background.
+NOT RUN: Apple SDK type checking, iPadOS build, Swift Playground launch or hardware tests.

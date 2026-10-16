@@ -1,0 +1,17 @@
+test_executable_traversal_is_rejected (test_delivery_tools.DeliveryTests.test_executable_traversal_is_rejected) ... ok
+test_output_inside_app_is_rejected (test_delivery_tools.DeliveryTests.test_output_inside_app_is_rejected) ... ok
+test_payload_preserves_executable_and_relative_symlink (test_delivery_tools.DeliveryTests.test_payload_preserves_executable_and_relative_symlink) ... ok
+test_simulator_build_is_rejected (test_delivery_tools.DeliveryTests.test_simulator_build_is_rejected) ... ok
+test_simulator_selection_ignores_newer_incompatible_and_unavailable_runtimes (test_delivery_tools.DeliveryTests.test_simulator_selection_ignores_newer_incompatible_and_unavailable_runtimes) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.005s
+
+OK
+
+PASS: 7 structural groups, 20 app Swift sources, 2 Xcode projects.
+PASS: workflow YAML, public-repository guard, read-only permissions, no Apple secrets, bash syntax and always-uploaded logs.
+PASS: generated Xcode project structure and direct iPad test-host path.
+PASS: all 20 native Swift source files syntax parsed; no Apple SDK type check performed.
+Portable Swift core unchanged: previous 17 passed tests retained, not rerun for delivery-only changes.
+NOT RUN: actual GitHub workflow, native Xcode builds/tests, real IPA packaging, AltStore signing/install, physical iPad tests.

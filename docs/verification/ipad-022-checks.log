@@ -1,0 +1,9 @@
+PASS: all app/core/package Swift syntax trees, including both conditional branches.
+PASS: Swift compiler syntax parse of 0.2.2 app. Apple SDK type checking unavailable.
+PASS: 7 structural groups, 20 app Swift sources, 2 Xcode projects.
+PASS: app playground structure, 20 identical app sources, core/tests, permissions, plist, local resources.
+NOT TESTED: Apple SDK type checking, Swift Playground launch, microphone, Pencil, Goodnotes, background.
+PASS: portable manifest evaluation; no remote dependencies.
+Portable core unchanged: previous 17 test successes retained; UI changes are not covered by those tests.
+OBSERVED ON USER IPAD in previous revision: blank window, empty console. Cause unresolved.
+NOT RUN HERE: 0.2.2 Apple build, startup UI, recording, Pencil, Goodnotes, physical device tests.

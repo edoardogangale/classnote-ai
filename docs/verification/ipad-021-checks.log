@@ -1,0 +1,8 @@
+PASS: syntax tree of 51 Swift files, including conditional branches.
+PASS: Swift frontend syntax parse of updated app sources (no Apple SDK type checking).
+PASS: type-check exact scanner Coordinator against nonisolated delegate fixtures using Swift 6.0.3 / Swift 5 mode. This is not VisionKit SDK validation.
+PASS: 7 structural groups, 20 app Swift sources, 2 Xcode projects.
+PASS: app playground structure, 20 identical app sources, core/tests, permissions, plist, local resources.
+NOT TESTED: Apple SDK type checking, Swift Playground launch, microphone, Pencil, Goodnotes, background.
+Portable core unchanged: 17 tests passed in previous revision; not rerun for UI/resource-only changes.
+User first Apple compile: FAILED with screenshot diagnostics. Updated Apple build and iPad runtime: NOT RUN here; user must retry.

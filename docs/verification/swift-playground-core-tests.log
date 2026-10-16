@@ -1,0 +1,71 @@
+Building for debugging...
+[0/13] Write swift-version--77F5288EFF8E7687.txt
+[1/13] Write sources
+[4/14] Emitting module ClassNoteCore
+[5/17] Compiling ClassNoteCore Models.swift
+[6/17] Compiling ClassNoteCore StudyIndex.swift
+[7/17] Compiling ClassNoteCore Timeline.swift
+[9/19] Emitting module ClassNoteCoreTests
+[10/20] Compiling ClassNoteCoreTests CoreTests.swift
+[11/21] Wrapping AST for ClassNoteCore for debugging
+[12/21] Wrapping AST for ClassNoteCoreTests for debugging
+[13/21] /workspace/scratch/c29ce72a66a4/ClassNoteAI/iPad/ClassNoteAI.swiftpm/.build/x86_64-unknown-linux-gnu/debug/ClassNoteAIPackageDiscoveredTests.derived/all-discovered-tests.swift
+[14/21] Write sources
+[16/22] Emitting module ClassNoteAIPackageDiscoveredTests
+[17/24] Compiling ClassNoteAIPackageDiscoveredTests ClassNoteCoreTests.swift
+[18/24] Compiling ClassNoteAIPackageDiscoveredTests all-discovered-tests.swift
+[19/25] /workspace/scratch/c29ce72a66a4/ClassNoteAI/iPad/ClassNoteAI.swiftpm/.build/x86_64-unknown-linux-gnu/debug/ClassNoteAIPackageTests.derived/runner.swift
+[20/25] Wrapping AST for ClassNoteAIPackageDiscoveredTests for debugging
+[21/25] Write sources
+[23/26] Emitting module ClassNoteAIPackageTests
+[24/27] Compiling ClassNoteAIPackageTests runner.swift
+[25/28] Wrapping AST for ClassNoteAIPackageTests for debugging
+[26/28] Write Objects.LinkFileList
+[27/28] Linking ClassNoteAIPackageTests.xctest
+Build complete! (25.89s)
+Test Suite 'All tests' started at 2026-10-16 14:44:35.777
+Test Suite 'debug.xctest' started at 2026-10-16 14:44:35.781
+Test Suite 'CoreTests' started at 2026-10-16 14:44:35.781
+Test Case 'CoreTests.testCorrectionDoesNotMutateOriginal' started at 2026-10-16 14:44:35.781
+Test Case 'CoreTests.testCorrectionDoesNotMutateOriginal' passed (0.002 seconds)
+Test Case 'CoreTests.testCrossLessonReferencesRetainLectureIdentity' started at 2026-10-16 14:44:35.783
+Test Case 'CoreTests.testCrossLessonReferencesRetainLectureIdentity' passed (0.101 seconds)
+Test Case 'CoreTests.testDeepLinkRoundTripAndValidation' started at 2026-10-16 14:44:35.885
+Test Case 'CoreTests.testDeepLinkRoundTripAndValidation' passed (0.0 seconds)
+Test Case 'CoreTests.testExtractiveSummaryNeverChangesSourceText' started at 2026-10-16 14:44:35.885
+Test Case 'CoreTests.testExtractiveSummaryNeverChangesSourceText' passed (0.001 seconds)
+Test Case 'CoreTests.testFlashcardAnswerIsVerbatimAndHasSource' started at 2026-10-16 14:44:35.886
+Test Case 'CoreTests.testFlashcardAnswerIsVerbatimAndHasSource' passed (0.0 seconds)
+Test Case 'CoreTests.testGoodnotesNewVersionPreservesIdentityButRequiresAnchorReview' started at 2026-10-16 14:44:35.886
+Test Case 'CoreTests.testGoodnotesNewVersionPreservesIdentityButRequiresAnchorReview' passed (0.0 seconds)
+Test Case 'CoreTests.testInsertedWordNeverReceivesInventedTimestamp' started at 2026-10-16 14:44:35.886
+Test Case 'CoreTests.testInsertedWordNeverReceivesInventedTimestamp' passed (0.0 seconds)
+Test Case 'CoreTests.testLargeEditsAreBoundedAndUnaligned' started at 2026-10-16 14:44:35.886
+Test Case 'CoreTests.testLargeEditsAreBoundedAndUnaligned' passed (0.002 seconds)
+Test Case 'CoreTests.testLongTimelineDoesNotAccumulateWallPauseTime' started at 2026-10-16 14:44:35.889
+Test Case 'CoreTests.testLongTimelineDoesNotAccumulateWallPauseTime' passed (0.033 seconds)
+Test Case 'CoreTests.testPartialRevisionsPreserveIDsOnlyAtSameAcousticTime' started at 2026-10-16 14:44:35.921
+Test Case 'CoreTests.testPartialRevisionsPreserveIDsOnlyAtSameAcousticTime' passed (0.0 seconds)
+Test Case 'CoreTests.testPausesHaveNoFabricatedInkTime' started at 2026-10-16 14:44:35.922
+Test Case 'CoreTests.testPausesHaveNoFabricatedInkTime' passed (0.0 seconds)
+Test Case 'CoreTests.testPunctuationRetainsWordIdentityAndTime' started at 2026-10-16 14:44:35.922
+Test Case 'CoreTests.testPunctuationRetainsWordIdentityAndTime' passed (0.0 seconds)
+Test Case 'CoreTests.testRepeatedTokensStayMonotonic' started at 2026-10-16 14:44:35.922
+Test Case 'CoreTests.testRepeatedTokensStayMonotonic' passed (0.0 seconds)
+Test Case 'CoreTests.testReplacementLosesOnlyChangedWords' started at 2026-10-16 14:44:35.923
+Test Case 'CoreTests.testReplacementLosesOnlyChangedWords' passed (0.0 seconds)
+Test Case 'CoreTests.testSearchReturnsOnlyActualSources' started at 2026-10-16 14:44:35.923
+Test Case 'CoreTests.testSearchReturnsOnlyActualSources' passed (0.001 seconds)
+Test Case 'CoreTests.testSpacedRepetitionAdvancesAndResets' started at 2026-10-16 14:44:35.923
+Test Case 'CoreTests.testSpacedRepetitionAdvancesAndResets' passed (0.0 seconds)
+Test Case 'CoreTests.testTimelineBoundarySelectsFollowingChunk' started at 2026-10-16 14:44:35.923
+Test Case 'CoreTests.testTimelineBoundarySelectsFollowingChunk' passed (0.0 seconds)
+Test Suite 'CoreTests' passed at 2026-10-16 14:44:35.924
+	 Executed 17 tests, with 0 failures (0 unexpected) in 0.142 (0.142) seconds
+Test Suite 'debug.xctest' passed at 2026-10-16 14:44:35.924
+	 Executed 17 tests, with 0 failures (0 unexpected) in 0.142 (0.142) seconds
+Test Suite 'All tests' passed at 2026-10-16 14:44:35.924
+	 Executed 17 tests, with 0 failures (0 unexpected) in 0.142 (0.142) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.0.3 (18c42c19cac3faf)
+✔ Test run with 0 tests passed after 0.001 seconds.
