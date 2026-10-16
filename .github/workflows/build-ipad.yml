@@ -81,7 +81,7 @@ jobs:
             -destination-timeout 180 \
             -derivedDataPath build/SimulatorDerivedData \
             -resultBundlePath build/AppleTests.xcresult \
-            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_ALLOWED=NO ONLY_ACTIVE_ARCH=YES \
             test 2>&1 | tee build/logs/apple-tests.log
 
       - name: Save IPA if build and tests passed
