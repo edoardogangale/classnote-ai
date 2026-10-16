@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'none'; img-src 'none';">
+<link rel="stylesheet" href="katex.min.css"><script src="katex.min.js"></script>
+<style>body{margin:0;padding:24px;font:17px -apple-system,sans-serif;background:white;color:#17213c}#formula{overflow-x:auto;padding:16px 0}#error{color:#b34321;font-size:13px;white-space:pre-wrap}</style>
+</head><body><div id="formula"></div><div id="error"></div><script>
+function renderFormula(latex){
+ document.getElementById('error').textContent='';
+ try{katex.render(latex,document.getElementById('formula'),{displayMode:true,throwOnError:true,trust:false,maxExpand:300,maxSize:20});}
+ catch(e){document.getElementById('formula').textContent='';document.getElementById('error').textContent='Formula da controllare: '+e.message;}
+}
+</script></body></html>

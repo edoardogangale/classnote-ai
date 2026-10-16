@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<key>CFBundleDevelopmentRegion</key><string>it</string>
+<key>CFBundleDisplayName</key><string>ClassNote AI</string>
+<key>CFBundleExecutable</key><string>$(EXECUTABLE_NAME)</string>
+<key>CFBundleIdentifier</key><string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+<key>CFBundleInfoDictionaryVersion</key><string>6.0</string>
+<key>CFBundleName</key><string>$(PRODUCT_NAME)</string>
+<key>CFBundlePackageType</key><string>APPL</string>
+<key>CFBundleShortVersionString</key><string>0.3.0</string>
+<key>CFBundleVersion</key><string>5</string>
+<key>LSRequiresIPhoneOS</key><true/>
+<key>NSMicrophoneUsageDescription</key><string>ClassNote registra le lezioni solo quando premi Registra. L’audio rimane sul tuo iPad.</string>
+<key>NSSpeechRecognitionUsageDescription</key><string>Trascrive localmente le tue lezioni. Se il riconoscimento offline non è disponibile, l’audio viene conservato senza inviarlo a un server.</string>
+<key>NSCameraUsageDescription</key><string>Scansiona lavagna e documenti per aggiungerli agli appunti con il momento della registrazione.</string>
+<key>UIBackgroundModes</key><array><string>audio</string></array>
+<key>UIRequiresFullScreen</key><false/>
+<key>UIApplicationSupportsIndirectInputEvents</key><true/>
+<key>UIApplicationSceneManifest</key><dict><key>UIApplicationSupportsMultipleScenes</key><false/></dict>
+<key>UILaunchScreen</key><dict/>
+<key>UISupportedInterfaceOrientations</key><array><string>UIInterfaceOrientationPortrait</string><string>UIInterfaceOrientationPortraitUpsideDown</string><string>UIInterfaceOrientationLandscapeLeft</string><string>UIInterfaceOrientationLandscapeRight</string></array>
+<key>CFBundleURLTypes</key><array><dict><key>CFBundleURLName</key><string>it.lorenzo.classnote.lecture</string><key>CFBundleURLSchemes</key><array><string>classnote</string></array></dict></array>
+<key>CFBundleDocumentTypes</key><array><dict>
+<key>CFBundleTypeName</key><string>Documenti e audio ClassNote</string><key>CFBundleTypeRole</key><string>Viewer</string>
+<key>LSHandlerRank</key><string>Alternate</string><key>LSItemContentTypes</key><array><string>com.adobe.pdf</string><string>public.image</string><string>public.audio</string></array>
+</dict><dict><key>CFBundleTypeName</key><string>Backup ClassNote</string><key>CFBundleTypeRole</key><string>Editor</string><key>LSItemContentTypes</key><array><string>it.lorenzo.classnote.backup</string></array></dict></array>
+<key>UTExportedTypeDeclarations</key><array><dict>
+<key>UTTypeIdentifier</key><string>it.lorenzo.classnote.backup</string><key>UTTypeDescription</key><string>Backup lezione ClassNote</string>
+<key>UTTypeConformsTo</key><array><string>com.apple.package</string></array>
+<key>UTTypeTagSpecification</key><dict><key>public.filename-extension</key><array><string>classnotepackage</string></array></dict>
+</dict></array>
+<key>LSSupportsOpeningDocumentsInPlace</key><false/>
+<key>ITSAppUsesNonExemptEncryption</key><false/>
+</dict></plist>
