@@ -1,0 +1,104 @@
+name: Build iPad IPA
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: classnote-ipad-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Compile, test and package iPad app
+    if: github.event.repository.private == false
+    runs-on: macos-15
+    timeout-minutes: 45
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_16.4.app/Contents/Developer
+    steps:
+      - name: Get source
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Toolchain and project checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/logs build/output
+          xcodebuild -version | tee build/logs/toolchain.log
+          swift --version | tee -a build/logs/toolchain.log
+          python3 scripts/check_project.py | tee build/logs/project-checks.log
+          python3 -m unittest discover -s Tests -p 'test_delivery_tools.py' -v 2>&1 | tee build/logs/delivery-tests.log
+
+      - name: Core tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          swift test --jobs 1 --package-path Packages/ClassNoteCore 2>&1 | tee build/logs/core-tests.log
+
+      - name: Compile app for a real iPad
+        shell: bash
+        run: |
+          set -euo pipefail
+          xcodebuild -project ClassNoteAI.xcodeproj -scheme ClassNoteAI \
+            -configuration Release -destination 'generic/platform=iOS' \
+            -derivedDataPath build/DeviceDerivedData \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY='' \
+            build 2>&1 | tee build/logs/device-build.log
+
+      - name: Package unsigned IPA for local signing with AltStore
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/package_ipa.py \
+            --app build/DeviceDerivedData/Build/Products/Release-iphoneos/ClassNoteAI.app \
+            --output build/output/ClassNoteAI-unsigned.ipa | tee build/logs/package-ipa.log
+          shasum -a 256 build/output/ClassNoteAI-unsigned.ipa > build/output/SHA256.txt
+          printf '%s\n' \
+            'Unsigned device build. AltStore Classic must sign it locally with your free Apple account.' \
+            'A packaged IPA is not evidence of microphone, Pencil or background tests on a physical iPad.' \
+            > build/output/READ-ME.txt
+
+      - name: Choose compatible iPad simulator
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/select_ipad_simulator.py | tee build/logs/simulator-selection.log
+
+      - name: Apple integration tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          xcodebuild -project ClassNoteAI.xcodeproj -scheme ClassNoteAI \
+            -configuration Debug \
+            -destination "platform=iOS Simulator,id=$CLASSNOTE_DEVICE_ID" \
+            -destination-timeout 180 \
+            -derivedDataPath build/SimulatorDerivedData \
+            -resultBundlePath build/AppleTests.xcresult \
+            CODE_SIGNING_ALLOWED=NO \
+            test 2>&1 | tee build/logs/apple-tests.log
+
+      - name: Save IPA if build and tests passed
+        uses: actions/upload-artifact@v4
+        with:
+          name: ClassNoteAI-IPA
+          path: build/output/
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Save logs even if compilation or tests failed
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ClassNoteAI-logs
+          path: |
+            build/logs/
+            build/AppleTests.xcresult/
+          if-no-files-found: warn
+          retention-days: 7
